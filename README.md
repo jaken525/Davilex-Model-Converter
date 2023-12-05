@@ -1,2 +1,4 @@
-# Davilex-Model-Converter
-Davilex 3d Game Model Converter from d3d to obj format.
+# Davilex Model Converter
+Davilex 3d Game Model Converter from D3D to Wavefront OBJ format. D3D2OBJ. Supported
+# Latest version
+0.1
