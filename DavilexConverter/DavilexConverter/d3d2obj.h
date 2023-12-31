@@ -154,7 +154,7 @@ struct D3D
 
 			for (int i = 0; i < triangleCount; i++)
 			{
-				obj << "f " << vertexEdge[(i * 3)] + 1<< "/";
+				obj << "f " << vertexEdge[(i * 3)] + 1 << "/";
 				obj << vertexEdge[(i * 3)] + 1 << " ";
 
 				obj << vertexEdge[(i * 3) + 1] + 1 << "/";

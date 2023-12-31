@@ -1,0 +1,28 @@
+﻿  DavilexConverter.cpp
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\BinaryFileWork.h(121,25): warning C4267: аргумент: преобразование из "size_t" в "DWORD"; возможна потеря данных
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(81,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(102,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(132,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(140,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(147,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(155,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+  Создание кода
+  1 of 224 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  DavilexConverter.vcxproj -> A:\GitHub\Davilex-Model-Converter\DavilexConverter\x64\Release\DavilexConverter.exe

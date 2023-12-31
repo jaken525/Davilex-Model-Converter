@@ -1,10 +1,24 @@
 ﻿  DavilexConverter.cpp
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\BinaryFileWork.h(121,25): warning C4267: аргумент: преобразование из "size_t" в "DWORD"; возможна потеря данных
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(81,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(102,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(132,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(140,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(147,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(155,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\BinaryFileWork.h(131): warning C4715: OpenFile: значение возвращается не при всех путях выполнения
-  DavilexConverter.vcxproj -> C:\Users\Admin\source\repos\DavilexConverter\x64\Debug\DavilexConverter.exe
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\BinaryFileWork.h(121,25): warning C4267: аргумент: преобразование из "size_t" в "DWORD"; возможна потеря данных
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(81,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(102,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(132,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(140,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(147,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(155,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\BinaryFileWork.h(131): warning C4715: OpenFile: значение возвращается не при всех путях выполнения
+  DavilexConverter.vcxproj -> A:\GitHub\Davilex-Model-Converter\DavilexConverter\x64\Debug\DavilexConverter.exe
