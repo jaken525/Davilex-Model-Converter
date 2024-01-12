@@ -1,0 +1,53 @@
+﻿cl : командная строка  warning D9025: переопределение "/sdl" на "/GS-"
+  DavilexConverter.cpp
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\BinaryFileWork.h(173,20): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(69,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(88,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(116,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(124,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(131,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(139,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\parser.h(118,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\parser.h(131,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\parser.h(144,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\parser.h(156,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\parser.h(179,14): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\parser.h(254,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\parser.h(258,23): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\obj2d3d.h(54,22): warning C4309: аргумент: усечение константного значения
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+  Создание кода
+  2 of 614 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  DavilexConverter.vcxproj -> C:\Users\Admin\source\repos\DavilexConverter\Release\DavilexConverter.exe

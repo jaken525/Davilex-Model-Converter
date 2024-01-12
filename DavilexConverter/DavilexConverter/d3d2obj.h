@@ -1,8 +1,10 @@
-#pragma once
+
 #include "BinaryFileWork.h"
 
 struct D3D
 {
+	bool isOriginal = true;
+
 	uint32_t vertexCount = NULL;
 	uint32_t triangleCount = NULL;
 
@@ -13,9 +15,6 @@ struct D3D
 	uint16_t* vertexEdge = NULL;
 	uint16_t* normalEdge = NULL;
 
-	uint8_t* unknown = NULL;
-	uint8_t* vp = NULL;
-
 	D3D()
 	{
 		vertices = NULL;
@@ -23,8 +22,6 @@ struct D3D
 		textureVertices = NULL;
 		vertexEdge = NULL;
 		normalEdge = NULL;
-		unknown = NULL;
-		vp = NULL;
 	}
 
 	~D3D()
@@ -34,38 +31,33 @@ struct D3D
 		if (textureVertices = NULL) delete[] textureVertices;
 		if (vertexEdge = NULL) delete[] vertexEdge;
 		if (normalEdge = NULL) delete[] normalEdge;
-		if (unknown = NULL) delete[] unknown;
-		if (vp = NULL) delete[] vp;
 	}
 
 	void Open(std::string filePath)
 	{
-		if (filePath != "")
+		char* buffer = NULL;
+		size_t fsize = 0;
+		if (OpenFile(buffer, fsize, filePath))
 		{
-			char* buffer = NULL;
-			size_t fsize = 0;
-			if (OpenFile(buffer, fsize, filePath))
-			{
-				size_t ptr = 0;
-				std::string fpath = GetFileNamePath(filePath);
-				std::string fname = GetFileNameFile(filePath);
-				
-				if (Read(buffer, ptr, fsize, fpath, fname))
-					WriteOBJ(fpath + fname + ".obj");
-			}
-			if (buffer != NULL)
-			{
-				delete[] buffer;
-				buffer = NULL;
-			}
+			size_t ptr = 0;
+			std::string fpath = GetFileNamePath(filePath);
+			std::string fname = GetFileNameFile(filePath);
+
+			Read(buffer, ptr, fsize, fpath, fname);
+			WriteOBJ(fpath + fname + ".obj");
+		}
+		if (buffer != NULL)
+		{
+			delete[] buffer;
+			buffer = NULL;
 		}
 	}
 
-	bool Read(char*& f, size_t& pos, size_t& fsize, std::string& fpath, std::string& fname)
+	void Read(char*& f, size_t& pos, size_t& fsize, std::string& fpath, std::string& fname)
 	{
-		bool success = false;
-
-		pos += 4;
+		uint32_t testModel = ReadLong(f, pos);
+		if (testModel != 4294967295)
+			pos = 0;
 
 		vertexCount = ReadLong(f, pos);
 		triangleCount = ReadLong(f, pos);
@@ -75,8 +67,6 @@ struct D3D
 			vertices = new float[vertexCount * 3];
 			normals = new float[vertexCount * 3];
 			textureVertices = new float[vertexCount * 2];
-
-			unknown = new uint8_t[vertexCount];
 
 			for (int i = 0; i < vertexCount; i++)
 			{
@@ -91,9 +81,7 @@ struct D3D
 				textureVertices[i * 2] = ReadFloat(f, pos);
 				textureVertices[i * 2 + 1] = ReadFloat(f, pos);
 
-				pos += 16;
-
-				unknown[i] = ReadSingle(f, pos);
+				pos += 17;
 			}
 
 			normalEdge = new uint16_t[triangleCount];
@@ -102,8 +90,8 @@ struct D3D
 			for (int i = 0; i < triangleCount; i++)
 			{
 				vertexEdge[i * 3] = ReadShort(f, pos);
-				vertexEdge[i * 3 + 1] = ReadShort(f, pos);
 				vertexEdge[i * 3 + 2] = ReadShort(f, pos);
+				vertexEdge[i * 3 + 1] = ReadShort(f, pos);
 				normalEdge[i] = ReadShort(f, pos);
 
 				pos += 1;
@@ -115,10 +103,8 @@ struct D3D
 				pos = 0;
 			}
 
-			success = true;
 		}
 
-		return success;
 	}
 
 	void WriteOBJ(std::string file)
@@ -154,14 +140,14 @@ struct D3D
 
 			for (int i = 0; i < triangleCount; i++)
 			{
-				obj << "f " << vertexEdge[(i * 3)] + 1 << "/";
-				obj << vertexEdge[(i * 3)] + 1 << " ";
+				obj << "f " << vertexEdge[(i * 3 + sequence[0])] + 1 << "/";
+				obj << vertexEdge[(i * 3 + sequence[0])] + 1 << " ";
 
-				obj << vertexEdge[(i * 3) + 1] + 1 << "/";
-				obj << vertexEdge[(i * 3) + 1] + 1 << " ";
+				obj << vertexEdge[(i * 3) + sequence[1]] + 1 << "/";
+				obj << vertexEdge[(i * 3) + sequence[1]] + 1 << " ";
 
-				obj << vertexEdge[(i * 3) + 2] + 1 << "/";
-				obj << vertexEdge[(i * 3) + 2] + 1 << std::endl;
+				obj << vertexEdge[(i * 3) + sequence[2]] + 1 << "/";
+				obj << vertexEdge[(i * 3) + sequence[2]] + 1 << std::endl;
 			}
 			obj.close();
 		}
