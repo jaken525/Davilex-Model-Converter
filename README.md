@@ -10,6 +10,6 @@ example: f 22/22 31/31 12/12
 0.2
 
 changes:
--added obj2d3d
--added polygon recording sequence input function
--fixed displaying polygons after conversion
+- added obj2d3d
+- added polygon recording sequence input function
+- fixed displaying polygons after conversion
