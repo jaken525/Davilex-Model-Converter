@@ -1,11 +1,45 @@
 ﻿  DavilexConverter.cpp
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\BinaryFileWork.h(139,25): warning C4267: аргумент: преобразование из "size_t" в "DWORD"; возможна потеря данных
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(81,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(102,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(132,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(140,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(147,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\d3d2obj.h(155,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Admin\source\repos\DavilexConverter\DavilexConverter\BinaryFileWork.h(151): warning C4715: OpenFile: значение возвращается не при всех путях выполнения
-  LINK : не найден или не выполнена сборка C:\Users\Admin\source\repos\DavilexConverter\x64\Debug\DavilexConverter.exe при последней инкрементной компоновке; выполняется полная компоновка
-  DavilexConverter.vcxproj -> C:\Users\Admin\source\repos\DavilexConverter\x64\Debug\DavilexConverter.exe
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\BinaryFileWork.h(116,20): warning C4267: -=: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\BinaryFileWork.h(168,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\BinaryFileWork.h(217,25): warning C4267: аргумент: преобразование из "size_t" в "DWORD"; возможна потеря данных
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(71,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(90,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(118,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(126,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(133,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\d3d2obj.h(141,22): warning C4018: <: несоответствие типов со знаком и без знака
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\parser.h(97,18): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\parser.h(102,19): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\parser.h(107,19): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\parser.h(112,18): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\obj2d3d.h(54,22): warning C4309: аргумент: усечение константного значения
+  (компиляция исходного файла "DavilexConverter.cpp")
+  
+A:\GitHub\Davilex-Model-Converter\DavilexConverter\DavilexConverter\BinaryFileWork.h(229): warning C4715: OpenFile: значение возвращается не при всех путях выполнения
+  DavilexConverter.vcxproj -> A:\GitHub\Davilex-Model-Converter\DavilexConverter\x64\Debug\DavilexConverter.exe
