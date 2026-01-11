@@ -41,9 +41,10 @@ struct D3D
 		std::FILE * fd = std::fopen(filePath.string().c_str(), "rb");
 		if (fd)
 		{
-			size_t ptr = 0;
+			std::string objFilePath = filePath.string();
+			objFilePath = objFilePath.substr(0, objFilePath.length() - 4);
 			Read(fd);
-			WriteOBJ(filePath.parent_path().string() + std::filesystem::path::preferred_separator + filePath.stem().string() + ".obj");
+			WriteOBJ(objFilePath + ".obj");
 		}
 	}
 
