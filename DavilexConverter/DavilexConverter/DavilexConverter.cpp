@@ -63,10 +63,11 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		std::cout << "Incorrect file format. If this is dc5 file change his extension to d3d..." << std::endl;
+		std::cout << "Incorrect file format " << extension << ". If this is dc5 file change his extension to d3d..." << std::endl;
 		return 3;
 	}
 
 	return 0;
 }
+
 
