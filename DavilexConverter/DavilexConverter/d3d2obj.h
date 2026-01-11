@@ -54,8 +54,8 @@ struct D3D
 		if (size != 4294967295)
 				std::fseek(fd, 0, SEEK_SET);
 
-		std::fread(&vertexCount, 1, sizeof(uint32_t), fd);
-		std::fread(&triangleCount, 1, sizeof(uint32_t), fd);
+		std::fread((void *) &vertexCount, 1, sizeof(uint32_t), fd);
+		std::fread((void *) &triangleCount, 1, sizeof(uint32_t), fd);
 
 		if (vertexCount > 0 || triangleCount > 0)
 		{
@@ -65,16 +65,16 @@ struct D3D
 
 			for (int i = 0; i < vertexCount; i++)
 			{
-				std::fread(&vertices[i * 3], 1, sizeof(float), fd);
-				std::fread(&vertices[i * 3 + 1], 1, sizeof(float), fd);
-				std::fread(&vertices[i * 3 + 2], 1, sizeof(float), fd);
+				std::fread((void *) &vertices[i * 3], 1, sizeof(float), fd);
+				std::fread((void *) &vertices[i * 3 + 1], 1, sizeof(float), fd);
+				std::fread((void *) &vertices[i * 3 + 2], 1, sizeof(float), fd);
 
-				std::fread(&normals[i * 3], 1, sizeof(float), fd);
-				std::fread(&normals[i * 3 + 1], 1, sizeof(float), fd);
-				std::fread(&normals[i * 3 + 2], 1, sizeof(float), fd);
+				std::fread((void *) &normals[i * 3], 1, sizeof(float), fd);
+				std::fread((void *) &normals[i * 3 + 1], 1, sizeof(float), fd);
+				std::fread((void *) &normals[i * 3 + 2], 1, sizeof(float), fd);
 
-				std::fread(&textureVertices[i * 2], 1, sizeof(float), fd);
-				std::fread(&textureVertices[i * 2 + 1], 1, sizeof(float), fd);
+				std::fread((void *) &textureVertices[i * 2], 1, sizeof(float), fd);
+				std::fread((void *) &textureVertices[i * 2 + 1], 1, sizeof(float), fd);
 
 				std::fseek(fd, 17, SEEK_CUR);
 			}
@@ -84,10 +84,10 @@ struct D3D
 
 			for (int i = 0; i < triangleCount; i++)
 			{
-				std::fread(&vertexEdge[i * 3], 1, sizeof(uint16_t), fd);
-				std::fread(&vertexEdge[i * 3 + 2], 1, sizeof(uint16_t), fd);
-				std::fread(&vertexEdge[i * 3 + 1], 1, sizeof(uint16_t), fd);
-				std::fread(&normalEdge[i], 1, sizeof(uint16_t), fd);
+				std::fread((void *) &vertexEdge[i * 3], 1, sizeof(uint16_t), fd);
+				std::fread((void *) &vertexEdge[i * 3 + 2], 1, sizeof(uint16_t), fd);
+				std::fread((void *) &vertexEdge[i * 3 + 1], 1, sizeof(uint16_t), fd);
+				std::fread((void *) &normalEdge[i], 1, sizeof(uint16_t), fd);
 
 				std::fseek(fd, 1, SEEK_CUR);
 			}
