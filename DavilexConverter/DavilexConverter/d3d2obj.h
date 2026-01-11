@@ -38,7 +38,7 @@ struct D3D
 
 	void Open(std::filesystem::path filePath)
 	{
-		std::FILE * fd = std::fopen(filePath.c_str(), "rb");
+		std::FILE * fd = std::fopen(filePath.string().c_str(), "rb");
 		if (fd)
 		{
 			size_t ptr = 0;

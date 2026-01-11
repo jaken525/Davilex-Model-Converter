@@ -39,7 +39,7 @@ struct OBJ
 		if (filePath != "")
 		{
 			obj::ObjParser parser;
-			parser.parse(filePath);
+			parser.parse(filePath.string());
 
 			std::string fname = filePath.filename().string();
 
