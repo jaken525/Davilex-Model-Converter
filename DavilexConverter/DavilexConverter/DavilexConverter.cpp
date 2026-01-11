@@ -45,16 +45,20 @@ int main(int argc, char* argv[])
 	std::cout << std::endl;
 
 	std::filesystem::path filePath = file;
-	std::string extension = filePath.extension().string();
 
-	if (extension == ".d3d" || extension == ".D3D")
+	std::string extension = "";
+	extension += filePath.extension().string()[1];
+	extension += filePath.extension().string()[2];
+	extension += filePath.extension().string()[3];
+
+	if (extension == "d3d" || extension == "D3D")
 	{
 		std::cout << "Using d3d2obj" << std::endl;
 
 		D3D d3d2obj;
 		d3d2obj.Open(file);
 	}
-	else if (extension == ".obj" || extension == ".OBJ")
+	else if (extension == "obj" || extension == "OBJ")
 	{
 		std::cout << "Using obj2d3d" << std::endl;
 
@@ -69,5 +73,6 @@ int main(int argc, char* argv[])
 
 	return 0;
 }
+
 
 
