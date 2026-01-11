@@ -15,15 +15,15 @@ jobs:
           cmake -DCMAKE_BUILD_TYPE=Release ..
           cmake --build .
           strip --strip-unneeded DavilexConverter
-          cp -r DavilexConverter ../../
+          cp -r ../../LICENSE ../../README.md ./
       - name: Publish artifacts
         uses: actions/upload-artifact@v4
         with:
           name: DavilexConverter-linux
           path: |
-            DavilexConverter
-            LICENSE
-            README.md
+            DavilexConverter/build/DavilexConverter
+            DavilexConverter/build/LICENSE
+            DavilexConverter/build/README.md
 
   Windows:
     runs-on: windows-latest
@@ -49,15 +49,15 @@ jobs:
           cmake -DCMAKE_BUILD_TYPE=Release ..
           cmake --build .
           strip --strip-unneeded DavilexConverter.exe
-          cp -r DavilexConverter.exe ../../
+          cp -r ../../LICENSE ../../README.md ./
       - name: Publish artifacts
         uses: actions/upload-artifact@v4
         with:
           name: DavilexConverter-windows
           path: |
-            DavilexConverter.exe
-            LICENSE
-            README.md
+            DavilexConverter/build/DavilexConverter.exe
+            DavilexConverter/build/LICENSE
+            DavilexConverter/build/README.md
 
   Release:
     needs: [Ubuntu, Windows]
