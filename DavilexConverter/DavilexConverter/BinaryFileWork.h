@@ -5,6 +5,7 @@
 #ifdef _WIN32
 	#include <windows.h>
 	#include <shlwapi.h>
+	#include <algorithm>
 
 
 	std::string OpenFileName(HWND owner = NULL, uint32_t flags = OFN_EXPLORER | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY)
@@ -23,6 +24,7 @@
 		if (!GetOpenFileName(&ofn))
 			return "";
 
+		std::replace(filename.begin(), filename.end(), '\\', '/');
 		return filename;
 	}
 #endif
@@ -89,3 +91,4 @@ std::string WriteLong(int num)
 
 	return Hex;
 }
+
