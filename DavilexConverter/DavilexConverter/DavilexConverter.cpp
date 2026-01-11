@@ -9,16 +9,16 @@ int sequence[3] = { 0, 0, 0 };
 int main(int argc, char* argv[])
 {
 	std::string file = "";
-	if (argc < 2) {
+	if (argc < 2 || argv[1] == "") {
 #ifdef _WIN32
 		file = OpenFileName();
 #else
 		std::cout << "Please choose a file" << std::endl;
 		return 1;
 #endif
+	} else {
+		file = argv[1];
 	}
-
-	file = argv[1];
 	FILE * test = fopen(file.c_str(), "r");
 	if (!test) {
 		std::cout << "Chosen file is not valid" << std::endl;
@@ -69,3 +69,4 @@ int main(int argc, char* argv[])
 
 	return 0;
 }
+
