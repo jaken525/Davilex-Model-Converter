@@ -9,16 +9,14 @@ int sequence[3] = { 0, 0, 0 };
 int main(int argc, char* argv[])
 {
 	std::string file = "";
-	if (argc != 2) {
+	if (argc < 2) {
+#ifdef _WIN32
+		file = OpenFileName();
+#else
 		std::cout << "Please choose a file" << std::endl;
 		return 1;
-	}
-#ifdef _WIN32
-	else if (argc < 2)
-	{
-		file = OpenFileName();
-	}
 #endif
+	}
 
 	file = argv[1];
 	FILE * test = fopen(file.c_str(), "r");
