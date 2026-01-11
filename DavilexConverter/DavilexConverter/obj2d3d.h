@@ -41,7 +41,7 @@ struct OBJ
 			obj::ObjParser parser;
 			parser.parse(filePath.string());
 
-			std::string fname = filePath.filename().string();
+			std::string fname = filePath.stem().string();
 
 			vertices = parser.GetVertices();
 			textureVertices = parser.GetTextureVertices();
