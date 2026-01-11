@@ -5,10 +5,11 @@
 #include <string>
 #include <cstring>
 #include <iomanip>
-#include <windows.h>
-#include <shlwapi.h>
 
+#include "BinaryFileWork.h"
 #include "parser.h"
+
+extern int sequence[3];
 
 struct OBJ
 {
@@ -33,14 +34,14 @@ struct OBJ
 		normals.clear();
 	}
 
-	void Open(std::string& filePath)
+	void Open(std::filesystem::path filePath)
 	{
 		if (filePath != "")
 		{
 			obj::ObjParser parser;
 			parser.parse(filePath);
 
-			std::string fname = GetFileNameFile(filePath);
+			std::string fname = filePath.filename().string();
 
 			vertices = parser.GetVertices();
 			textureVertices = parser.GetTextureVertices();

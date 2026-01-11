@@ -1,12 +1,15 @@
+#include <filesystem>
+#include <fstream>
+#include <cstdio>
 
-#include "BinaryFileWork.h"
+extern int sequence[3];
 
 struct D3D
 {
 	bool isOriginal = true;
 
-	uint32_t vertexCount = NULL;
-	uint32_t triangleCount = NULL;
+	uint32_t vertexCount = 0;
+	uint32_t triangleCount = 0;
 
 	float* vertices = NULL;
 	float* normals = NULL;
@@ -33,34 +36,26 @@ struct D3D
 		if (normalEdge = NULL) delete[] normalEdge;
 	}
 
-	void Open(std::string filePath)
+	void Open(std::filesystem::path filePath)
 	{
-		char* buffer = NULL;
-		size_t fsize = 0;
-		if (OpenFile(buffer, fsize, filePath))
+		std::FILE * fd = std::fopen(filePath.c_str(), "rb");
+		if (fd)
 		{
 			size_t ptr = 0;
-			std::string fpath = GetFileNamePath(filePath);
-			std::string fname = GetFileNameFile(filePath);
-
-			Read(buffer, ptr, fsize, fpath, fname);
-			WriteOBJ(fpath + fname + ".obj");
-		}
-		if (buffer != NULL)
-		{
-			delete[] buffer;
-			buffer = NULL;
+			Read(fd);
+			WriteOBJ(filePath.parent_path().string() + std::filesystem::path::preferred_separator + filePath.stem().string() + ".obj");
 		}
 	}
 
-	void Read(char*& f, size_t& pos, size_t& fsize, std::string& fpath, std::string& fname)
+	void Read(std::FILE * fd)
 	{
-		uint32_t testModel = ReadLong(f, pos);
-		if (testModel != 4294967295)
-			pos = 0;
+		uint32_t size = 0;
+		std::fread(&size, 1, sizeof(uint32_t), fd);
+		if (size != 4294967295)
+				std::fseek(fd, 0, SEEK_SET);
 
-		vertexCount = ReadLong(f, pos);
-		triangleCount = ReadLong(f, pos);
+		std::fread(&vertexCount, 1, sizeof(uint32_t), fd);
+		std::fread(&triangleCount, 1, sizeof(uint32_t), fd);
 
 		if (vertexCount > 0 || triangleCount > 0)
 		{
@@ -70,18 +65,18 @@ struct D3D
 
 			for (int i = 0; i < vertexCount; i++)
 			{
-				vertices[i * 3] = ReadFloat(f, pos);
-				vertices[i * 3 + 1] = ReadFloat(f, pos);
-				vertices[i * 3 + 2] = ReadFloat(f, pos);
+				std::fread(&vertices[i * 3], 1, sizeof(float), fd);
+				std::fread(&vertices[i * 3 + 1], 1, sizeof(float), fd);
+				std::fread(&vertices[i * 3 + 2], 1, sizeof(float), fd);
 
-				normals[i * 3] = ReadFloat(f, pos);
-				normals[i * 3 + 1] = ReadFloat(f, pos);
-				normals[i * 3 + 2] = ReadFloat(f, pos);
+				std::fread(&normals[i * 3], 1, sizeof(float), fd);
+				std::fread(&normals[i * 3 + 1], 1, sizeof(float), fd);
+				std::fread(&normals[i * 3 + 2], 1, sizeof(float), fd);
 
-				textureVertices[i * 2] = ReadFloat(f, pos);
-				textureVertices[i * 2 + 1] = ReadFloat(f, pos);
+				std::fread(&textureVertices[i * 2], 1, sizeof(float), fd);
+				std::fread(&textureVertices[i * 2 + 1], 1, sizeof(float), fd);
 
-				pos += 17;
+				std::fseek(fd, 17, SEEK_CUR);
 			}
 
 			normalEdge = new uint16_t[triangleCount];
@@ -89,22 +84,16 @@ struct D3D
 
 			for (int i = 0; i < triangleCount; i++)
 			{
-				vertexEdge[i * 3] = ReadShort(f, pos);
-				vertexEdge[i * 3 + 2] = ReadShort(f, pos);
-				vertexEdge[i * 3 + 1] = ReadShort(f, pos);
-				normalEdge[i] = ReadShort(f, pos);
+				std::fread(&vertexEdge[i * 3], 1, sizeof(uint16_t), fd);
+				std::fread(&vertexEdge[i * 3 + 2], 1, sizeof(uint16_t), fd);
+				std::fread(&vertexEdge[i * 3 + 1], 1, sizeof(uint16_t), fd);
+				std::fread(&normalEdge[i], 1, sizeof(uint16_t), fd);
 
-				pos += 1;
+				std::fseek(fd, 1, SEEK_CUR);
 			}
-			if (f != NULL)
-			{
-				delete[] f;
-				f = NULL;
-				pos = 0;
-			}
-
 		}
-
+		if(fd != NULL)
+			std::fclose(fd);
 	}
 
 	void WriteOBJ(std::string file)
