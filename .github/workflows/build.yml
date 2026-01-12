@@ -27,37 +27,24 @@ jobs:
 
   Windows:
     runs-on: windows-latest
-    defaults:
-      run:
-        shell: msys2 {0}
     steps:
-      - name: Install dependencies
-        uses: msys2/setup-msys2@v2
-        with:
-          msystem: MINGW64
-          install: >-
-            mingw-w64-x86_64-gcc
-            mingw-w64-x86_64-binutils
-            mingw-w64-x86_64-make
-            mingw-w64-x86_64-cmake
-          update: true
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v2
       - name: Build
         run: |
-          mkdir DavilexConverter/build && cd DavilexConverter/build
-          cmake -DCMAKE_BUILD_TYPE=Release ..
-          cmake --build .
-          strip --strip-unneeded DavilexConverter.exe
-          cp -r ../../LICENSE ../../README.md ./
+          cd DavilexConverter/
+          msbuild DavilexConverter.sln -t:rebuild -verbosity:diag -property:Configuration=Release
+          cp x64/Release/DavilexConverter.exe ../
       - name: Publish artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: DavilexConverter-windows
+          name: DavilexConverter-msbuild
           path: |
-            DavilexConverter/build/DavilexConverter.exe
-            DavilexConverter/build/LICENSE
-            DavilexConverter/build/README.md
+            DavilexConverter.exe
+            LICENSE
+            README.md
 
   Release:
     needs: [Ubuntu, Windows]
