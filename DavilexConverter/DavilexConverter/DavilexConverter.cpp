@@ -1,4 +1,6 @@
-﻿#include <iostream>
+﻿#define _CRT_SECURE_NO_WARNINGS
+
+#include <iostream>
 #include <filesystem>
 
 #include "d3d2obj.h"
@@ -8,6 +10,24 @@ int sequence[3] = { 0, 0, 0 };
 
 int main(int argc, char* argv[])
 {
+	std::string file = "";
+	if (argc < 2 || argv[1] == "") {
+#ifdef _WIN32
+		file = OpenFileName();
+#else
+		std::cout << "Please choose a file" << std::endl;
+		return 1;
+#endif
+	} else {
+		file = argv[1];
+	}
+	FILE * test = fopen(file.c_str(), "r");
+	if (!test) {
+		std::cout << "Chosen file is not valid" << std::endl;
+		return 2;
+	}
+	fclose(test);
+
 	std::cout << "DAVILEX CONVERTER v0.2" << std::endl << std::endl;
 	std::cout << "INFORMATION:" << std::endl;
 	std::cout << "To display polygons correctly, enter the sequence of their recording.\nThe value should be from 0 to 2." <<
@@ -26,38 +46,35 @@ int main(int argc, char* argv[])
 
 	std::cout << std::endl;
 
-	std::string file = "";
-	if (argc < 2)
-		file = OpenFileName();
-	else
-		file = argv[1];
+	std::filesystem::path filePath = file;
 
-	if (file != "")
+	std::string extension = "";
+	extension += filePath.extension().string()[1];
+	extension += filePath.extension().string()[2];
+	extension += filePath.extension().string()[3];
+
+	if (extension == "d3d" || extension == "D3D")
 	{
-		std::filesystem::path filePath = file;
+		std::cout << "Using d3d2obj" << std::endl;
 
-		std::string extension = "";
-		extension += filePath.extension().string()[1];
-		extension += filePath.extension().string()[2];
-		extension += filePath.extension().string()[3];
+		D3D d3d2obj;
+		d3d2obj.Open(file);
+	}
+	else if (extension == "obj" || extension == "OBJ")
+	{
+		std::cout << "Using obj2d3d" << std::endl;
 
-		if (extension == "d3d")
-		{
-			std::cout << "Using d3d2obj" << std::endl;
-
-			D3D d3d2obj;
-			d3d2obj.Open(file);
-		}
-		else if (extension == "obj")
-		{
-			std::cout << "Using obj2d3d" << std::endl;
-
-			OBJ obj2d3d;
-			obj2d3d.Open(file);
-		}
-		else
-			std::cout << "Incorrect file format. If this is dc5 file change his extension to d3d..." << std::endl;
+		OBJ obj2d3d;
+		obj2d3d.Open(file);
+	}
+	else
+	{
+		std::cout << "Incorrect file format " << extension << ". If this is dc5 file change his extension to d3d..." << std::endl;
+		return 3;
 	}
 
-	return 1;
+	return 0;
 }
+
+
+
